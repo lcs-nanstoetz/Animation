@@ -9,6 +9,7 @@ class Sketch : NSObject {
     
     // L-system definitions
     let coniferousTree: LindenmayerSystem
+    let bush: LindenmayerSystem
     
     // This function runs once
     override init() {
@@ -39,6 +40,27 @@ class Sketch : NSObject {
                                                     "6": Color(hue: 161, saturation: 71, brightness: 53, alpha: 100)
                                                    ],
                                            generations: 5)
+        
+        
+        bush = LindenmayerSystem(axiom: "SX",
+                                 angle: 20,
+                                 rules: ["F": [
+                                            RuleSet(odds: 1, successorText: "1/FFF"),
+                                        ],
+                                        "X": [
+                                            RuleSet(odds: 1, successorText: "1/1[[2-X][2-X+FX+FX][2+X]1-FX[2-XF]1F[2-X][2-X]]"),
+                                            RuleSet(odds: 1, successorText: "1/1[[2+X][2+X-FX-FX][2-X]1+FX[2+XF]1F[2+X][2+X]]"),
+                                            RuleSet(odds: 1, successorText: "1/1[[2-X][2-X+FXX+FX][2-FXFX]1-FX[2-XF][2-X]]"),
+                                        ]
+                                        ],
+                                 colors: ["1": Color(hue: 131, saturation: 100, brightness: 25, alpha: 100),
+                                          "2": Color(hue: 312, saturation: 51, brightness: 44, alpha: 100),
+                                          "3": Color(hue: 132, saturation: 205, brightness: 151, alpha: 100),
+                                          "4": Color(hue: 132, saturation:205, brightness: 151, alpha: 100),
+                                         ],
+                                generations: 4)
+        
+        
         
         // Create a gradient sky background, blue to white as vertical location increases
         for y in 300...500 {
@@ -138,18 +160,6 @@ class Sketch : NSObject {
             canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 300, y: y))
         
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -277,9 +287,125 @@ class Sketch : NSObject {
             aTree.renderFullSystem()
         }
         
+        for i in 1...2{
+            
+            let x = 300
+            let y = 100
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
 
-        
-        
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 355
+            let y = 100
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 335
+            let y = 50
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 370
+            let y = 50
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 410
+            let y = 100
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 300
+            let y = 50
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
+        for i in 1...2{
+            
+            let x = 405
+            let y = 50
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+
+            var aBush = VisualizedLindenmayerSystem(system: bush,
+                                                    length: 30,
+                                                    initialDirection: 90,
+                                                    reduction: 3.2,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aBush.renderFullSystem()
+        }
     }
     
     // This function runs repeatedly, forever, to create the animated effect
