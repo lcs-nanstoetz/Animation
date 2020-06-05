@@ -74,7 +74,7 @@ class Sketch : NSObject {
         for y in 0...300 {
                 
 
-            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
             
             // Draw a horizontal line at this vertical location
             canvas.drawLine(from: Point(x: 150, y: 0), to: Point(x: 450, y: y))
@@ -82,7 +82,7 @@ class Sketch : NSObject {
         }
         for y in 0...300 {
                     
-            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
             
             // Draw a horizontal line at this vertical location
             canvas.drawLine(from: Point(x: 150, y: 0), to: Point(x: 450, y: y))
@@ -91,7 +91,7 @@ class Sketch : NSObject {
         for y in 0...450 {
                 
             // DEBUG: Uncomment line below to see how this value change
-            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
             
             // Draw a horizontal line at this vertical location
             canvas.drawLine(from: Point(x: 350, y: 0), to: Point(x: 500, y: y))
@@ -100,11 +100,43 @@ class Sketch : NSObject {
         for y in 0...450 {
                     
             // DEBUG: Uncomment line below to see how this value change
-            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
             
             // Draw a horizontal line at this vertical location
             canvas.drawLine(from: Point(x: 350, y: 0), to: Point(x: 500, y: y))
     
+        }
+
+        for y in 0...200{
+        for x in 300...500{
+                        
+            // DEBUG: Uncomment line below to see how this value change
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 300, y: 150), to: Point(x: x, y: y))
+        
+        }
+        }
+        for y in 0...200{
+        for x in 300...500{
+                        
+            // DEBUG: Uncomment line below to see how this value change
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 300, y: 150), to: Point(x: x, y: y))
+        
+        }
+        }
+        for y in 0...200{
+                        
+            // DEBUG: Uncomment line below to see how this value change
+            canvas.lineColor = Color(hue: 20.0, saturation: 0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 200, y: 0), to: Point(x: 300, y: y))
+        
         }
         
         
