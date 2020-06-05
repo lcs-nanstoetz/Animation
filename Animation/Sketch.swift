@@ -9,6 +9,7 @@ class Sketch : NSObject {
     
     // L-system definitions
     let coniferousTree: LindenmayerSystem
+    let coniferousTree1: LindenmayerSystem
     
     // This function runs once
     override init() {
@@ -37,6 +38,25 @@ class Sketch : NSObject {
                                                     "4": Color(hue: 135, saturation: 84, brightness: 41, alpha: 100),
                                                     "5": Color(hue: 116, saturation: 26, brightness: 100, alpha: 100),
                                                     "6": Color(hue: 161, saturation: 71, brightness: 53, alpha: 100)
+                                                   ],
+                                           generations: 5)
+        coniferousTree1 = LindenmayerSystem(axiom: "SF",
+                                           angle: 20,
+                                           rules: ["F": [
+                                                        RuleSet(odds: 1, successorText: "3F[++1F[X]][+2F][-4F][--5F[X]]6F"),
+                                                        RuleSet(odds: 1, successorText: "3F[+1F][+2F][-4F]5F"),
+                                                        RuleSet(odds: 1, successorText: "3F[+1F][-2F][--6F]4F"),
+                                                        ],
+                                                   "X": [
+                                                        RuleSet(odds: 1, successorText: "X")
+                                                        ]
+                                                  ],
+                                           colors: ["1": Color(hue: 110, saturation: 90, brightness: 55, alpha: 100),
+                                                    "2": Color(hue: 124, saturation: 85, brightness: 40, alpha: 100),
+                                                    "3": Color(hue: 135, saturation: 80, brightness: 1, alpha: 100),
+                                                    "4": Color(hue: 125, saturation: 75, brightness: 35, alpha: 100),
+                                                    "5": Color(hue: 106, saturation: 20, brightness: 95, alpha: 100),
+                                                    "6": Color(hue: 151, saturation: 65, brightness: 45, alpha: 100)
                                                    ],
                                            generations: 5)
         
@@ -81,6 +101,36 @@ class Sketch : NSObject {
         // Work out the "a" value for the parabola (vertical stretch)
         let a = (anotherPointOnParabola.y - vertex.y) / pow(anotherPointOnParabola.x - vertex.x, 2)
         
+        
+        
+        
+        for i in 1...5 {
+            // Use a quadratic relationship to define the vertical starting point for the top of each tree
+            // (trees grow down from starting point)
+            let x = CGFloat(i - 1) * 50.0 + 50              // This defines "spread" of the trees along the quadratic path
+            let y = a * pow(x - vertex.x, 2) + vertex.y + 40     // Determine vertical position using y = a(x-h)^2 + k
+            
+            // DEBUG: To help see where starting points are
+            print("Starting point for tree is... x: \(x), y: \(y)")
+            
+            // Define the length of the tree's initial stroke
+            let length = 27.0 - Double(y) / 16.0            // Piggyback on quadratic change in y values to set length
+            print("Length of line for system is: \(length)")
+            
+            // Generate the tree
+            var aTree1 = VisualizedLindenmayerSystem(system: coniferousTree1,
+                                                    length: length,
+                                                    initialDirection: 270,
+                                                    reduction: 1.30,
+                                                    pointToStartRenderingFrom: Point(x: x, y: y),
+                                                    drawnOn: canvas)
+                
+            // Render this tree
+            aTree1.renderFullSystem()
+            
+        }
+        
+        
         // Iterate to create 9 trees
         for i in 1...9 {
 
@@ -106,8 +156,9 @@ class Sketch : NSObject {
             
             // Render this tree
             aTree.renderFullSystem()
-            
         }
+        
+
         
         
     }
