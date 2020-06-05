@@ -54,7 +54,7 @@ class Sketch : NSObject {
             
         }
         
-        // Create a gradient ground background, brown to darker brown as vertical location increases
+        // Create a gradient ground background, green to darker green as vertical location increases
         // NOTE: Can use the HSV/HSB sliders (third from top) at this site for help picking colours:
         //       http://colorizer.org
         for y in 0...300 {
@@ -63,14 +63,65 @@ class Sketch : NSObject {
             let currentBrightness = 50.0 - Float(y) / 30.0 * 3.0
             // DEBUG: Uncomment line below to see how this value changes
             print("currentBrightness is \(currentBrightness)")
-            canvas.lineColor = Color(hue: 25.0, saturation: 68.0, brightness: currentBrightness, alpha: 100.0)
+            canvas.lineColor = Color(hue: 120.0, saturation: 180.0, brightness: currentBrightness, alpha: 100.0)
             
             // Draw a horizontal line at this vertical location
             canvas.drawLine(from: Point(x: 0, y: y), to: Point(x: canvas.width, y: y))
-            
+    
         }
         
-        // Create 9 trees, drawn from their tops along a quadratic path
+        //create a mountain
+        for y in 0...300 {
+                
+
+            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 150, y: 0), to: Point(x: 450, y: y))
+    
+        }
+        for y in 0...300 {
+                    
+            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 150, y: 0), to: Point(x: 450, y: y))
+    
+        }
+        for y in 0...450 {
+                
+            // DEBUG: Uncomment line below to see how this value change
+            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 350, y: 0), to: Point(x: 500, y: y))
+    
+        }
+        for y in 0...450 {
+                    
+            // DEBUG: Uncomment line below to see how this value change
+            canvas.lineColor = Color(hue: 20.0, saturation: 180.0, brightness: 50, alpha: 100.0)
+            
+            // Draw a horizontal line at this vertical location
+            canvas.drawLine(from: Point(x: 350, y: 0), to: Point(x: 500, y: y))
+    
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        // Create 16 trees, drawn from their tops along a quadratic path
         
         // Define the vertex of the parabolic path (top right of canvas)
         let vertex = Point(x: 450, y: 350)
@@ -81,6 +132,9 @@ class Sketch : NSObject {
         // Work out the "a" value for the parabola (vertical stretch)
         let a = (anotherPointOnParabola.y - vertex.y) / pow(anotherPointOnParabola.x - vertex.x, 2)
         
+        
+        
+        // make a lot of trees (16)
         for i in 1...1 {
             // Use a quadratic relationship to define the vertical starting point for the top of each tree
             // (trees grow down from starting point)
@@ -93,6 +147,8 @@ class Sketch : NSObject {
             // Define the length of the tree's initial stroke
             let length = 27.0 - Double(y) / 16.0            // Piggyback on quadratic change in y values to set length
             print("Length of line for system is: \(length)")
+            
+            
             
             // Generate the tree
             var aTree = VisualizedLindenmayerSystem(system: coniferousTree,
@@ -163,7 +219,6 @@ class Sketch : NSObject {
         }
         
         
-        // Iterate to create 9 trees
         for i in 1...7 {
 
             // Use a quadratic relationship to define the vertical starting point for the top of each tree
