@@ -10,6 +10,7 @@ class Sketch : NSObject {
     // L-system definitions
     let coniferousTree: LindenmayerSystem
     let bush: LindenmayerSystem
+    let sun: LindenmayerSystem
     
     // This function runs once
     override init() {
@@ -59,6 +60,16 @@ class Sketch : NSObject {
                                           "4": Color(hue: 132, saturation:205, brightness: 151, alpha: 100),
                                          ],
                                 generations: 4)
+        
+        
+        sun = LindenmayerSystem(axiom: "SF+F+F+F+F+F+F+F+",
+                                angle: 45,
+                                rules: ["F": [
+                                    RuleSet(odds: 1, successorText: "1+F--F+F"),
+                                    ]
+                                    ],
+                                        colors: ["1": Color(hue: 59, saturation: 52, brightness: 100, alpha: 100),],
+                                generations: 6)
         
         
         
@@ -406,6 +417,16 @@ class Sketch : NSObject {
             // Render this bush
             aBush.renderFullSystem()
         }
+        
+
+            var aSun = VisualizedLindenmayerSystem(system: sun,
+                                                    length: 30,
+                                                    initialDirection: 0,
+                                                    reduction: 3.5,
+                                                    pointToStartRenderingFrom: Point(x: 50, y: 450),
+                                                    drawnOn: canvas)
+            // Render this bush
+            aSun.renderFullSystem()
     }
     
     // This function runs repeatedly, forever, to create the animated effect
