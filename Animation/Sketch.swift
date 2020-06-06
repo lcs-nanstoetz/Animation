@@ -11,7 +11,7 @@ class Sketch : NSObject {
     let coniferousTree: LindenmayerSystem
     let bush: LindenmayerSystem
     let sun: LindenmayerSystem
-    
+    let flower:LindenmayerSystem
     // This function runs once
     override init() {
         
@@ -70,6 +70,22 @@ class Sketch : NSObject {
                                     ],
                                         colors: ["1": Color(hue: 59, saturation: 52, brightness: 100, alpha: 100),],
                                 generations: 6)
+        
+        flower = LindenmayerSystem(axiom: "SFX",
+                                   angle: 10,
+                                   rules: ["F": [
+                                   RuleSet(odds: 1, successorText: "F++[2FFFF]"),
+                                   ],
+                                    "X": [
+                                    RuleSet(odds: 1, successorText: "1/1+XX"),
+                                    RuleSet(odds: 1, successorText: "1/1XX"),
+                                    RuleSet(odds: 1, successorText: "1/1-XX"),
+                                    ]
+                                   ],
+                                   colors: ["1": Color(hue: 120, saturation: 60, brightness: 46, alpha: 100),
+                                            "2": Color(hue: 360, saturation: 85, brightness: 75, alpha: 100),
+                                            ],
+                                   generations: 6)
         
         
         
@@ -427,7 +443,66 @@ class Sketch : NSObject {
                                                     drawnOn: canvas)
             // Render this bush
             aSun.renderFullSystem()
+        
+        
+            var aFlower = VisualizedLindenmayerSystem(system: flower,
+                                                      length: 50,
+                                                      initialDirection: 0,
+                                                      reduction: 2.2,
+                                                      pointToStartRenderingFrom: Point(x: 470, y: 250),
+                                                      drawnOn: canvas)
+            aFlower.renderFullSystem()
+            var aFlower2 = VisualizedLindenmayerSystem(system: flower,
+                                                      length: 50,
+                                                      initialDirection: 0,
+                                                      reduction: 2.1,
+                                                      pointToStartRenderingFrom: Point(x: 490, y: 240),
+                                                      drawnOn: canvas)
+            aFlower2.renderFullSystem()
+            var aFlower3 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 2.4,
+                                                       pointToStartRenderingFrom: Point(x: 390, y: 250),
+                                                       drawnOn: canvas)
+            aFlower3.renderFullSystem()
+            var aFlower4 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 2.5,
+                                                       pointToStartRenderingFrom: Point(x: 430, y: 240),
+                                                       drawnOn: canvas)
+            aFlower4.renderFullSystem()
+            var aFlower5 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 2,
+                                                       pointToStartRenderingFrom: Point(x: 410, y: 260),
+                                                       drawnOn: canvas)
+            aFlower5.renderFullSystem()
+            var aFlower6 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 2.2,
+                                                       pointToStartRenderingFrom: Point(x: 420, y: 250),
+                                                       drawnOn: canvas)
+            aFlower6.renderFullSystem()
+            var aFlower7 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 2.2,
+                                                       pointToStartRenderingFrom: Point(x: 410, y: 240),
+                                                       drawnOn: canvas)
+            aFlower7.renderFullSystem()
+            var aFlower8 = VisualizedLindenmayerSystem(system: flower,
+                                                       length: 50,
+                                                       initialDirection: 0,
+                                                       reduction: 1.9,
+                                                       pointToStartRenderingFrom: Point(x: 430, y: 280),
+                                                       drawnOn: canvas)
+            aFlower8.renderFullSystem()
     }
+    
     
     // This function runs repeatedly, forever, to create the animated effect
     func draw() {
